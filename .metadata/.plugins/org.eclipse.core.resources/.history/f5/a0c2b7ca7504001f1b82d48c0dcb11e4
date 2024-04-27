@@ -1,0 +1,5 @@
+package com.sobhan.repository;
+
+public interface FoodRepository {
+
+}

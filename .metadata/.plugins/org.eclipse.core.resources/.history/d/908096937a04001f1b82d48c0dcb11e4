@@ -1,0 +1,29 @@
+package com.sobhan.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sobhan.model.Food;
+import com.sobhan.service.FoodService;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000/")
+public class FoodControler {
+		@Autowired
+		private FoodService foodservice;
+		
+		public ResponseEntity<String> addData(@RequestBody Food food) {
+			foodservice.addData(food);
+			String msg="Food added successfully";
+			
+			return new ResponseEntity<String>(msg,HttpStatus.CREATED);
+			
+		}
+			
+		
+}
